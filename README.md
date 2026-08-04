@@ -1,8 +1,8 @@
-# Job Application Tracker
+# Job Applications Tracker
 
 #About The Project
 
-Job Application Tracker is a web application that helps job seekers organize and manage their job search in one place. Users can add job applications, track application progress, monitor deadlines, record interview dates, and store important notes.
+Job Applications Tracker is a web application that helps job seekers organize and manage their job search in one place. Users can add job applications, track application progress, monitor deadlines, record interview dates, and store important notes.
 
 The application uses JavaScript and the browser LocalStorage API to save application data, allowing information to remain available even after refreshing the page.
 
@@ -31,7 +31,7 @@ The application uses JavaScript and the browser LocalStorage API to save applica
 
 # Project Structure
 
-job-application-tracker/
+job-applications-tracker/
 
 ├── index.html  
 ├── add.html  
