@@ -1,23 +1,30 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Application | CareerFlow</title>
-
+    <title>Add Application | Job Applications Tracker</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
 <header>
 
-    <h1>CareerFlow</h1>
+    <div class="brand">
+        <h1>Job Applications Tracker</h1>
+        <p>
+            A job tracker that has one job:
+            to track your job applications
+        </p>
+    </div>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="add.html" class="active">Add Application</a></li>
+            <li><a class="active" href="add.html">Add Application</a></li>
             <li><a href="applications.html">Applications</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -27,113 +34,109 @@
 
 <main>
 
-<section class="form-section">
+    <section class="form-section">
 
-<h2>Add a New Job Application</h2>
+        <h2>Add A New Job Application</h2>
 
-<form id="applicationForm">
+        <form id="applicationForm">
 
-<div class="form-group">
-<label for="company">Company Name</label>
-<input
-type="text"
-id="company"
-placeholder="e.g. Safaricom"
-required>
-</div>
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input
+                    type="text"
+                    id="company"
+                    placeholder="Example: Safaricom"
+                    required>
+            </div>
 
-<div class="form-group">
-<label for="jobTitle">Job Title</label>
-<input
-type="text"
-id="jobTitle"
-placeholder="Frontend Developer"
-required>
-</div>
+            <div class="form-group">
+                <label for="jobTitle">Job Title</label>
+                <input
+                    type="text"
+                    id="jobTitle"
+                    placeholder="Frontend Developer"
+                    required>
+            </div>
 
-<div class="form-group">
-<label for="location">Location</label>
-<input
-type="text"
-id="location"
-placeholder="e.g. Nairobi"
-required>
-</div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Nairobi"
+                    required>
+            </div>
 
-<div class="form-group">
-<label for="salary">Salary (Optional)</label>
-<input
-type="number"
-id="salary"
-placeholder="50000">
-</div>
+            <div class="form-group">
+                <label for="salary">Salary (Optional)</label>
+                <input
+                    type="number"
+                    id="salary"
+                    placeholder="50000">
+            </div>
 
-<div class="form-group">
-<label for="date">Application Date</label>
-<input
-type="date"
-id="date"
-required>
-</div>
+            <div class="form-group">
+                <label for="date">Application Date</label>
+                <input
+                    type="date"
+                    id="date"
+                    required>
+            </div>
 
-<div class="form-group">
-<label for="deadline">Application Deadline</label>
-<input
-type="date"
-id="deadline">
-</div>
+            <div class="form-group">
+                <label for="deadline">Application Deadline</label>
+                <input
+                    type="date"
+                    id="deadline">
+            </div>
 
-<div class="form-group">
-<label for="interviewDate">Interview Date</label>
-<input
-type="date"
-id="interviewDate">
-</div>
+            <div class="form-group">
+                <label for="interviewDate">Interview Date (Optional)</label>
+                <input
+                    type="date"
+                    id="interviewDate">
+            </div>
 
+            <div class="form-group">
+                <label for="status">Application Status</label>
 
+                <select id="status">
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
 
+            <div class="form-group">
+                <label for="notes">Notes (Optional)</label>
 
+                <textarea
+                    id="notes"
+                    rows="5"
+                    placeholder="Add any additional notes..."></textarea>
+            </div>
 
+            <button type="submit" class="btn">
+                Save Application
+            </button>
 
+            <p id="message"></p>
 
+        </form>
 
+    </section>
 
+</main>
 
-<div class="form-group">
-<label for="status">Application Status</label>
+<footer>
+    <p>© 2026 Job Applications Tracker</p>
+</footer>
 
-<select id="status">
+<script src="js/script.js"></script>
 
-<option value="Applied">Applied</option>
-
-<option value="Interview">Interview</option>
-
-<option value="Offer">Offer</option>
-
-<option value="Rejected">Rejected</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label for="notes">Notes</label>
-
-<textarea
-id="notes"
-rows="5"
-placeholder="Add any additional notes about this application..."></textarea>
-
-</div>
-
-<button
-type="submit"
-class="btn">
-
-Save Application
-
-</button>
+</body>
+</html>
 
 <p id="message"></p>
 
@@ -143,18 +146,205 @@ Save Application
 
 </main>
 
-<footer>
 
-<p>
-
-© 2026 CareerFlow |
-Designed by Caren Chepkirui
-
-</p>
-
-</footer>
 
 <script src="js/script.js"></script>
 
 </body>
+</html>
+
+
+
+
+<div class="form-group">
+
+<label for="date">
+Application Date
+</label>
+
+
+<input
+type="date"
+id="date"
+required>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label for="deadline">
+Application Deadline
+</label>
+
+
+<input
+type="date"
+id="deadline">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label for="interviewDate">
+Interview Date
+</label>
+
+
+<input
+type="date"
+id="interviewDate">
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<input
+type="text"
+id="recruiter"
+placeholder="Recruiter name">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label for="status">
+Application Status
+</label>
+
+
+
+<select id="status">
+
+
+<option value="Applied">
+Applied
+</option>
+
+
+<option value="Interview">
+Interview
+</option>
+
+
+<option value="Offer">
+Offer
+</option>
+
+
+<option value="Rejected">
+Rejected
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label for="notes">
+Notes
+</label>
+
+
+<textarea
+id="notes"
+rows="5"
+placeholder="Add any additional notes..."></textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<button type="submit" class="btn">
+
+Save Application
+
+</button>
+
+
+
+
+<p id="message"></p>
+
+
+
+
+</form>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 Job Applications Tracker| Designed by Caren Chepkirui
+</p>
+
+</footer>
+
+
+
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
 </html>

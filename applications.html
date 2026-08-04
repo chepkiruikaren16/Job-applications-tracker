@@ -1,97 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applications | CareerFlow</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Job Applications Tracker</title>
+<link rel="stylesheet" href="css/styles.css">
+
 </head>
+
+
 <body>
+
 
 <header>
 
-    <h1>CareerFlow</h1>
 
-    <nav>
+<div class="brand">
 
-        <ul>
+<h1>Job Applications Tracker</h1>
 
-            <li><a href="index.html">Home</a></li>
+<p>
+A job tracker that has one job:
+to track your job applications
+</p>
 
-            <li><a href="add.html">Add Application</a></li>
+</div>
 
-            <li><a href="applications.html" class="active">Applications</a></li>
 
-            <li><a href="about.html">About</a></li>
 
-        </ul>
+<nav>
 
-    </nav>
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="add.html">Add Application</a></li>
+
+<li><a class="active" href="applications.html">Applications</a></li>
+
+<li><a href="about.html">About</a></li>
+
+</ul>
+
+</nav>
+
 
 </header>
 
+
+
+
+
 <main>
+
 
 <section class="applications-page">
 
-<h2>My Job Applications</h2>
 
-<p>
+<h2>
+My Job Applications
+</h2>
 
-View, search, filter, edit and manage all your job applications.
 
+<p style="text-align:center;">
+Manage, search and track all your job applications.
 </p>
+
+
+
 
 <div class="controls">
 
-<input
+
+<input 
 type="text"
 id="searchInput"
-placeholder="🔍 Search company or job title...">
+placeholder="Search company or job title...">
+
+
 
 <select id="filterStatus">
 
-<option value="All">All Applications</option>
 
-<option value="Applied">Applied</option>
+<option value="All">
+All Applications
+</option>
 
-<option value="Interview">Interview</option>
 
-<option value="Offer">Offer</option>
+<option value="Applied">
+Applied
+</option>
 
-<option value="Rejected">Rejected</option>
+
+<option value="Interview">
+Interview
+</option>
+
+
+<option value="Offer">
+Offer
+</option>
+
+
+<option value="Rejected">
+Rejected
+</option>
+
 
 </select>
 
+
 </div>
+
+
+
+
+
+
 
 <div id="applicationsContainer">
 
+
 <p class="empty-message">
 
-No job applications saved yet.
+No applications saved yet.
 
 </p>
 
+
 </div>
+
+
+
+
 
 </section>
 
+
 </main>
+
+
+
+
+
+
 
 <footer>
 
 <p>
-
-© 2026 CareerFlow |
-Designed by Caren Chepkirui
-
+© 2026 Job Applications Tracker| Designed by Caren Chepkirui
 </p>
 
 </footer>
 
+
+
+
+
 <script src="js/script.js"></script>
 
+
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 
-  // ==========================================
+// ==========================================
 // CareerFlow Job Application Tracker
 // ==========================================
 
@@ -20,7 +20,9 @@ function saveApplications() {
 // Get Form Values
 // ==========================================
 function getFormValues() {
+
     return {
+
         company: document.getElementById("company").value.trim(),
         jobTitle: document.getElementById("jobTitle").value.trim(),
         location: document.getElementById("location").value.trim(),
@@ -30,7 +32,9 @@ function getFormValues() {
         interviewDate: document.getElementById("interviewDate").value,
         status: document.getElementById("status").value,
         notes: document.getElementById("notes").value.trim()
+
     };
+
 }
 
 // ==========================================
@@ -44,10 +48,13 @@ function validateApplication(data) {
         data.location === "" ||
         data.date === ""
     ) {
+
         return false;
+
     }
 
     return true;
+
 }
 
 // ==========================================
@@ -56,6 +63,26 @@ function validateApplication(data) {
 const form = document.getElementById("applicationForm");
 
 if (form) {
+
+    // Load application for editing
+    const editingApplication = JSON.parse(localStorage.getItem("editingApplication"));
+
+    if (editingApplication) {
+
+        editingId = editingApplication.id;
+
+        document.getElementById("company").value = editingApplication.company;
+        document.getElementById("jobTitle").value = editingApplication.jobTitle;
+        document.getElementById("location").value = editingApplication.location;
+        document.getElementById("salary").value = editingApplication.salary;
+        document.getElementById("date").value = editingApplication.date;
+        document.getElementById("deadline").value = editingApplication.deadline || "";
+        document.getElementById("interviewDate").value = editingApplication.interviewDate || "";
+        document.getElementById("status").value = editingApplication.status;
+        document.getElementById("notes").value = editingApplication.notes || "";
+
+        localStorage.removeItem("editingApplication");
+    }
 
     form.addEventListener("submit", function (e) {
 
@@ -68,10 +95,10 @@ if (form) {
         if (!validateApplication(data)) {
 
             message.style.color = "red";
-            message.textContent =
-                "Please complete all required fields.";
+            message.textContent = "Please complete all required fields.";
 
             return;
+
         }
 
         if (editingId === null) {
@@ -81,8 +108,7 @@ if (form) {
             applications.push(data);
 
             message.style.color = "green";
-            message.textContent =
-                "Application saved successfully.";
+            message.textContent = "Application saved successfully.";
 
         } else {
 
@@ -97,20 +123,21 @@ if (form) {
                 applications[index] = data;
 
                 message.style.color = "green";
-                message.textContent =
-                    "Application updated successfully.";
+                message.textContent = "Application updated successfully.";
+
             }
 
             editingId = null;
+
         }
 
         saveApplications();
 
-        displayApplications();
+        form.reset();
 
         updateStatistics();
 
-        form.reset();
+        displayApplications();
 
     });
 
@@ -155,6 +182,7 @@ function displayApplications() {
         `;
 
         return;
+
     }
 
     filtered.forEach(application => {
@@ -168,9 +196,9 @@ function displayApplications() {
             if (application.deadline < today) {
 
                 deadline = `
-                    <span style="color:red;font-weight:bold;">
-                        ${application.deadline} (Expired)
-                    </span>
+                <span style="color:red;font-weight:bold;">
+                    ${application.deadline} (Expired)
+                </span>
                 `;
 
             } else {
@@ -187,57 +215,41 @@ function displayApplications() {
 
         card.innerHTML = `
 
-        <h2>${application.company}</h2>
+            <h2>${application.company}</h2>
 
-        <p><strong>Job Title:</strong> ${application.jobTitle}</p>
+            <p><strong>Job Title:</strong> ${application.jobTitle}</p>
 
-        <p><strong>Location:</strong> ${application.location}</p>
+            <p><strong>Location:</strong> ${application.location}</p>
 
-        <p><strong>Salary:</strong> ${application.salary || "Not specified"}</p>
+            <p><strong>Salary:</strong> ${application.salary || "Not specified"}</p>
 
-        <p><strong>Date Applied:</strong> ${application.date}</p>
+            <p><strong>Date Applied:</strong> ${application.date}</p>
 
-        <p><strong>Application Deadline:</strong> ${deadline}</p>
+            <p><strong>Application Deadline:</strong> ${deadline}</p>
 
-        <p><strong>Interview Date:</strong> ${application.interviewDate || "Not scheduled"}</p>
+            <p><strong>Interview Date:</strong> ${application.interviewDate || "Not scheduled"}</p>
 
-        <p><strong>Status:</strong> ${application.status}</p>
+            <p><strong>Status:</strong> ${application.status}</p>
 
-        
-        ${
-            application.website
-            ? `<a href="${application.website}" target="_blank">Visit Website</a>`
-            : "Not provided"
-        }
-        </p>
+            <p><strong>Notes:</strong></p>
 
-        <p><strong>Job Link:</strong>
-        ${
-            application.jobLink
-            ? `<a href="${application.jobLink}" target="_blank">Open Job</a>`
-            : "Not provided"
-        }
-        </p>
+            <p>${application.notes || "No notes added."}</p>
 
-        <p><strong>Notes:</strong></p>
+            <div class="card-buttons">
 
-        <p>${application.notes || "No notes added."}</p>
+                <button
+                    class="edit-btn"
+                    onclick="editApplication(${application.id})">
+                    Edit
+                </button>
 
-        <div class="card-buttons">
+                <button
+                    class="delete-btn"
+                    onclick="deleteApplication(${application.id})">
+                    Delete
+                </button>
 
-            <button
-                class="edit-btn"
-                onclick="editApplication(${application.id})">
-                Edit
-            </button>
-
-            <button
-                class="delete-btn"
-                onclick="deleteApplication(${application.id})">
-                Delete
-            </button>
-
-        </div>
+            </div>
 
         `;
 
@@ -257,17 +269,10 @@ function editApplication(id) {
 
     if (!app) return;
 
-    editingId = id;
-
-    document.getElementById("company").value = app.company;
-    document.getElementById("jobTitle").value = app.jobTitle;
-    document.getElementById("location").value = app.location;
-    document.getElementById("salary").value = app.salary;
-    document.getElementById("date").value = app.date;
-    document.getElementById("deadline").value = app.deadline;
-    document.getElementById("interviewDate").value = app.interviewDate;
-    document.getElementById("status").value = app.status;
-    document.getElementById("notes").value = app.notes;
+    localStorage.setItem(
+        "editingApplication",
+        JSON.stringify(app)
+    );
 
     window.location.href = "add.html";
 
@@ -279,9 +284,15 @@ function editApplication(id) {
 
 function deleteApplication(id) {
 
-    if (!confirm("Delete this application?")) return;
+    if (!confirm("Delete this application?")) {
 
-    applications = applications.filter(app => app.id !== id);
+        return;
+
+    }
+
+    applications = applications.filter(
+        app => app.id !== id
+    );
 
     saveApplications();
 
@@ -290,7 +301,6 @@ function deleteApplication(id) {
     updateStatistics();
 
 }
-
 // ==========================================
 // Search & Filter
 // ==========================================
@@ -306,6 +316,7 @@ const filterStatus = document.getElementById("filterStatus");
 if (filterStatus) {
     filterStatus.addEventListener("change", displayApplications);
 }
+
 // ==========================================
 // Dashboard Statistics
 // ==========================================
@@ -327,6 +338,7 @@ function updateStatistics() {
         ).length;
 
         interviews.textContent = interviewCount;
+
     }
 
     if (offers) {
@@ -336,6 +348,7 @@ function updateStatistics() {
         ).length;
 
         offers.textContent = offerCount;
+
     }
 
 }
@@ -346,8 +359,10 @@ function updateStatistics() {
 
 function clearApplications() {
 
-    if (!confirm("Delete ALL applications?")) {
+    if (!confirm("Delete all applications?")) {
+
         return;
+
     }
 
     applications = [];

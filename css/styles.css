@@ -1,7 +1,11 @@
 
-   /* ==========================================
-   GLOBAL STYLES
-========================================== */
+   /* =====================================
+   CareerFlow Job Application Tracker
+   Modern Stylesheet
+===================================== */
+
+
+/* ===== GLOBAL STYLES ===== */
 
 *{
     margin:0;
@@ -10,639 +14,512 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f5f7fb;
-    color:#333;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f4f7fb;
+    color:black;
     line-height:1.6;
 }
-
-/* ==========================================
-   HEADER
-========================================== */
-
-header{
-    background:#0f4c81;
-    color:white;
-    padding:20px; 50px;
-    justify-content: space-between;
-    text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.15);
-}
-
-header h1{
-    font-size:2rem;
-    margin-bottom:15px;
-}
-
-/* ==========================================
-   NAVIGATION
-========================================== */
-
-nav ul{
-    display:flex;
-    align-items:center;
-    list-style:none;
-    gap:25px;
-    flex-wrap:wrap;
-    margin: 0;
-    padding: 0;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:6px;
-    transition:.3s;
-    font-weight:bold;
-}
-
-nav a:hover,
-nav a.active{
-    background:white;
-    color:#0f4c81;
-}
-
-/* ==========================================
-   MAIN
-========================================== */
 
 main{
     width:90%;
     max-width:1200px;
-    margin:40px auto;
+    margin:auto;
 }
 
-/* ==========================================
-   HERO SECTION
-========================================== */
+
+/* ===== HEADER ===== */
+
+header{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    box-shadow:0 3px 10px rgb(158, 6, 67);
+}
+
+
+/* Logo section */
+
+.brand h1{
+
+    color:#0f4c81;
+    font-size:36px;
+    margin-bottom:5px;
+    font-weight: 700;
+
+}
+
+
+.brand p{
+
+    color:#666;
+    font-size:15px;
+
+}
+
+
+/* Navigation */
+
+nav ul{
+
+    display:flex;
+    list-style:none;
+    gap:30px;
+
+}
+
+
+nav ul li a{
+
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+
+nav ul li a:hover,
+nav ul li a.active{
+
+    color:#0f4c81;
+
+}
+
+
+/* ===== HERO SECTION ===== */
+
 
 .hero{
+
     background:white;
+    margin:40px auto;
+    padding:50px;
     text-align:center;
-    padding:50px 30px;
     border-radius:15px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-    margin-bottom:40px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
 }
+
 
 .hero h2{
-    font-size:2.2rem;
+
     color:#0f4c81;
+    font-size:35px;
     margin-bottom:20px;
+
 }
+
 
 .hero p{
-    font-size:1.1rem;
+
     max-width:700px;
     margin:auto;
-    margin-bottom:30px;
+    color:#555;
+    font-size:18px;
+
 }
 
-/* ==========================================
-   BUTTONS
-========================================== */
+
+
+/* Buttons */
 
 .btn{
+
     display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
     background:#0f4c81;
     color:white;
-    padding:14px 28px;
-    border-radius:8px;
     text-decoration:none;
-    border:none;
-    cursor:pointer;
+    border-radius:8px;
+    font-weight:bold;
     transition:.3s;
-    font-size:1rem;
+
 }
+
 
 .btn:hover{
+
     background:#08365d;
     transform:translateY(-2px);
+
 }
 
-/* ==========================================
-   GALLERY
-========================================== */
+
+
+/* ===== IMAGE GALLERY ===== */
+
 
 .gallery{
-    margin-bottom:40px;
+
+    margin:40px 0;
+    margin-top: 30px;
+
 }
+
 
 .photos{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
+
 }
+
 
 .photos img{
+
     width:100%;
-    height:220px;
+    height:250px;
     object-fit:cover;
-    border-radius:12px;
-    transition:.4s;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    border-radius:15px;
+    transition: transform .3s ease;
+
+}
+.photos img:hover{transform: scale(1.05);
 }
 
-.photos img:hover{
-    transform:scale(1.05);
-}
 
-/* ==========================================
-   DASHBOARD
-========================================== */
+
+/* ===== STATISTICS CARDS ===== */
+
 
 .statistics{
-    margin-top:50px;
+
+    margin:50px 0;
+
 }
+
 
 .statistics h2{
+
     text-align:center;
     color:#0f4c81;
     margin-bottom:30px;
+
 }
+
+
 
 .stats-container{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
 }
+
+
 
 .card{
+
     background:white;
     padding:30px;
-    border-radius:12px;
     text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
-    transition:.3s;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
 }
 
-.card:hover{
-    transform:translateY(-6px);
-}
+
 
 .card h3{
+
     color:#0f4c81;
     margin-bottom:15px;
+
 }
+
 
 .card p{
-    font-size:2rem;
-    font-weight:bold;
-} 
-/* ==========================================
-   ADD APPLICATION FORM
-========================================== */
 
-.form-section{
-    background:#ffffff;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-    max-width:850px;
-    margin:40px auto;
+    font-size:25px;
+    font-weight:bold;
+
 }
 
+
+
+/* ===== FORM PAGE ===== */
+
+
+.form-section{
+
+    background:white;
+    margin:40px auto;
+    padding:40px;
+    max-width:800px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+
+
 .form-section h2{
+
     text-align:center;
     color:#0f4c81;
     margin-bottom:30px;
-    font-size:2rem;
+
 }
+
+
 
 .form-group{
-    display:flex;
-    flex-direction:column;
+
     margin-bottom:20px;
+
 }
 
+
+
 .form-group label{
+
+    display:block;
     font-weight:bold;
     margin-bottom:8px;
-    color:#333;
+
 }
+
+
 
 .form-group input,
 .form-group select,
 .form-group textarea{
+
     width:100%;
-    padding:14px;
-    border:1px solid #d1d5db;
+    padding:13px;
+    border:1px solid #ccc;
     border-radius:8px;
     font-size:16px;
-    outline:none;
-    transition:all .3s ease;
-    background:#fff;
+
 }
 
-.form-group textarea{
-    resize:vertical;
-    min-height:120px;
-}
+
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
+
+    outline:none;
     border-color:#0f4c81;
-    box-shadow:0 0 8px rgba(15,76,129,.2);
+
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-    color:#888;
+
+
+textarea{
+
+    resize:vertical;
+
 }
 
-button[type="submit"]{
-    width:100%;
-    margin-top:10px;
+
+
+/* ===== APPLICATIONS PAGE ===== */
+
+
+.applications-page{
+
+    margin:40px 0;
+
 }
 
-#message{
+
+.applications-page h2{
+
     text-align:center;
-    margin-top:20px;
-    font-weight:bold;
-    font-size:1rem;
+    color:#0f4c81;
+
 }
 
-/* ==========================================
-   SEARCH & FILTER
-========================================== */
 
 .controls{
+
     display:flex;
-    gap:20px;
     justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
+    gap:20px;
     margin:30px 0;
+
 }
+
+
 
 .controls input,
 .controls select{
-    padding:12px 15px;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    font-size:16px;
-    min-width:250px;
-    outline:none;
-    transition:.3s;
-}
 
-.controls input:focus,
-.controls select:focus{
-    border-color:#0f4c81;
-    box-shadow:0 0 8px rgba(15,76,129,.2);
-}
-
-/* ==========================================
-   SECTION HEADINGS
-========================================== */
-
-.applications-page h2,
-.form-section h2,
-.statistics h2{
-    color:#0f4c81;
-}
-
-.applications-page p{
-    text-align:center;
-    color:#666;
-    margin-bottom:15px;
-}
-/* ==========================================
-   APPLICATION CARDS
-========================================== */
-
-#applicationsContainer{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:25px;
-    margin-top:30px;
-}
-
-.application-card{
-    background:#ffffff;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 6px 18px rgba(0,0,0,.1);
-    transition:all .3s ease;
-    border-top:5px solid #0f4c81;
-}
-
-.application-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-}
-
-.application-card h2,
-.application-card h3{
-    color:#0f4c81;
-    margin-bottom:15px;
-    border-bottom:2px solid #eef2f7;
-    padding-bottom:10px;
-}
-
-.application-card p{
-    margin:10px 0;
-    line-height:1.6;
-    word-break:break-word;
-}
-
-.application-card strong{
-    color:#222;
-}
-
-.application-card a{
-    color:#0f4c81;
-    font-weight:bold;
-    text-decoration:none;
-}
-
-.application-card a:hover{
-    text-decoration:underline;
-}
-
-/* ==========================================
-   DELETE BUTTON
-========================================== */
-
-.delete-btn{
-    width:100%;
-    margin-top:20px;
-    background:#dc3545;
-    color:#fff;
-    border:none;
     padding:12px;
     border-radius:8px;
-    cursor:pointer;
-    font-size:15px;
-    transition:.3s;
+    border:1px solid #ccc;
+
 }
 
-.delete-btn:hover{
-    background:#b02a37;
+
+
+/* Application cards */
+
+#applicationsContainer{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
 }
 
-/* ==========================================
-   EMPTY STATE
-========================================== */
 
-.empty-message{
-    text-align:center;
-    background:#fff;
-    padding:40px;
-    border-radius:12px;
-    color:#666;
-    font-size:18px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+.application-card{
+
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
 }
 
-/* ==========================================
-   STATUS BADGES
-========================================== */
 
-.status{
-    display:inline-block;
-    padding:6px 12px;
-    border-radius:20px;
-    color:#fff;
-    font-size:13px;
-    font-weight:bold;
-}
 
-.status.applied{
-    background:#0d6efd;
-}
+.application-card h2{
 
-.status.interview{
-    background:#fd7e14;
-}
-
-.status.offer{
-    background:#198754;
-}
-
-.status.rejected{
-    background:#dc3545;
-}
-
-/* ==========================================
-   PRIORITY BADGES
-========================================== */
-
-.priority{
-    display:inline-block;
-    padding:6px 12px;
-    border-radius:20px;
-    color:#fff;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.priority.high{
-    background:#dc3545;
-}
-
-.priority.medium{
-    background:#ffc107;
-    color:#222;
-}
-
-.priority.low{
-    background:#198754;
-}
-
-/* ==========================================
-   LINKS
-========================================== */
-
-.application-card a{
     color:#0f4c81;
-    font-weight:600;
+
 }
 
-.application-card a:hover{
-    color:#08365d;
+
+
+.application-card p{
+
+    margin:8px 0;
+
 }
 
-/* ==========================================
-   SCROLLBAR (Modern Browsers)
-========================================== */
 
-::-webkit-scrollbar{
-    width:10px;
+
+/* Buttons */
+
+.card-buttons{
+
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+
 }
 
-::-webkit-scrollbar-track{
-    background:#f1f1f1;
+
+.edit-btn,
+.delete-btn{
+
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+
 }
 
-::-webkit-scrollbar-thumb{
-    background:#0f4c81;
-    border-radius:10px;
+
+.edit-btn{
+
+    background:#0d6efd;
+
 }
 
-::-webkit-scrollbar-thumb:hover{
-    background:#08365d;
+
+.delete-btn{
+
+    background:#dc3545;
+
 }
-/* ==========================================
-   FOOTER
-========================================== */
+
+
+
+/* ===== ABOUT PAGE ===== */
+
+
+.about{
+
+    background:white;
+    padding:40px;
+    margin:40px 0;
+    border-radius:15px;
+
+}
+
+
+/* ===== FOOTER ===== */
+
 
 footer{
+
     background:#0f4c81;
-    color:#fff;
+    color:white;
     text-align:center;
     padding:20px;
     margin-top:50px;
-}
-
-footer p{
-    font-size:15px;
-}
-
-/* ==========================================
-   ANIMATIONS
-========================================== */
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.hero,
-.form-section,
-.application-card,
-.card{
-    animation:fadeIn .6s ease-in-out;
-}
-
-/* ==========================================
-   RESPONSIVE DESIGN
-========================================== */
-
-@media (max-width:992px){
-
-    main{
-        width:95%;
-    }
-
-    .stats-container{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    #applicationsContainer{
-        grid-template-columns:1fr;
-    }
 
 }
 
-@media (max-width:768px){
 
-    header h1{
-        font-size:1.6rem;
-    }
 
-    nav ul{
-        flex-direction:column;
-        gap:10px;
-    }
+/* ===== RESPONSIVE DESIGN ===== */
 
-    .hero{
-        padding:30px 20px;
-    }
 
-    .hero h2{
-        font-size:1.8rem;
-    }
-
-    .hero p{
-        font-size:1rem;
-    }
-
-    .photos{
-        grid-template-columns:1fr;
-    }
-
-    .stats-container{
-        grid-template-columns:1fr;
-    }
-
-    .controls{
-        flex-direction:column;
-    }
-
-    .controls input,
-    .controls select{
-        width:100%;
-    }
-
-    .form-section{
-        padding:25px;
-    }
-
-    .application-card{
-        padding:20px;
-    }
-
-}
-
-@media (max-width:480px){
-
-    body{
-        font-size:15px;
-    }
+@media(max-width:900px){
 
     header{
-        padding:15px;
-    }
 
-    header h1{
-        font-size:1.4rem;
-    }
-
-    .btn{
-        width:100%;
+        flex-direction:column;
         text-align:center;
+        gap:20px;
+
     }
 
-    .card{
+
+    nav ul{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+
+    .stats-container,
+    #applicationsContainer,
+    .photos{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
+
+
+@media(max-width:600px){
+
+    header{
+
         padding:20px;
+
     }
 
-    .card p{
-        font-size:1.6rem;
+
+    .hero{
+
+        padding:25px;
+
     }
 
-    .application-card h2,
-    .application-card h3{
-        font-size:1.2rem;
+
+    .hero h2{
+
+        font-size:25px;
+
     }
 
-}
 
-/* ==========================================
-   UTILITY CLASSES
-========================================== */
-
-.text-center{
-    text-align:center;
-}
-
-.mt-20{
-    margin-top:20px;
-}
-
-.mb-20{
-    margin-bottom:20px;
-}
-
-.hidden{
-    display:none;
 }
