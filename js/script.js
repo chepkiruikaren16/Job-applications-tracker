@@ -28,11 +28,6 @@ function getFormValues() {
         date: document.getElementById("date").value,
         deadline: document.getElementById("deadline").value,
         interviewDate: document.getElementById("interviewDate").value,
-        website: document.getElementById("website").value.trim(),
-        jobLink: document.getElementById("jobLink").value.trim(),
-        recruiter: document.getElementById("recruiter").value.trim(),
-        recruiterEmail: document.getElementById("recruiterEmail").value.trim(),
-        priority: document.getElementById("priority").value,
         status: document.getElementById("status").value,
         notes: document.getElementById("notes").value.trim()
     };
@@ -208,13 +203,7 @@ function displayApplications() {
 
         <p><strong>Status:</strong> ${application.status}</p>
 
-        <p><strong>Priority:</strong> ${application.priority}</p>
-
-        <p><strong>Recruiter:</strong> ${application.recruiter || "Not provided"}</p>
-
-        <p><strong>Email:</strong> ${application.recruiterEmail || "Not provided"}</p>
-
-        <p><strong>Website:</strong>
+        
         ${
             application.website
             ? `<a href="${application.website}" target="_blank">Visit Website</a>`
@@ -277,11 +266,6 @@ function editApplication(id) {
     document.getElementById("date").value = app.date;
     document.getElementById("deadline").value = app.deadline;
     document.getElementById("interviewDate").value = app.interviewDate;
-    document.getElementById("website").value = app.website;
-    document.getElementById("jobLink").value = app.jobLink;
-    document.getElementById("recruiter").value = app.recruiter;
-    document.getElementById("recruiterEmail").value = app.recruiterEmail;
-    document.getElementById("priority").value = app.priority;
     document.getElementById("status").value = app.status;
     document.getElementById("notes").value = app.notes;
 
