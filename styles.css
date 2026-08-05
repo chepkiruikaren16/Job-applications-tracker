@@ -1,0 +1,667 @@
+/* =====================================
+   JOB APPLICATIONS TRACKER
+   FULL STYLESHEET
+===================================== */
+
+
+/* ===== GLOBAL ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:'Poppins', Arial, sans-serif;
+    background:#f7f5ff;
+    color:#333;
+    line-height:1.6;
+
+}
+
+
+a{
+    text-decoration:none;
+}
+
+
+ul{
+    list-style:none;
+}
+
+
+
+
+
+/* ===== HEADER ===== */
+
+
+header{
+
+    background:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.logo h1{
+
+    color:#6c63ff;
+    font-size:28px;
+
+}
+
+
+
+nav ul{
+
+    display:flex;
+    gap:15px;
+
+}
+
+
+
+nav a{
+
+    color:#444;
+    font-weight:600;
+    padding:8px 18px;
+    border-radius:25px;
+    transition:0.3s;
+
+}
+
+
+
+nav a:hover,
+nav a.active{
+
+    background:#6c63ff;
+    color:white;
+
+}
+
+
+
+
+
+/* ===== MAIN ===== */
+
+
+main{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+}
+
+
+
+
+
+/* ===== HERO ===== */
+
+
+.hero{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+
+}
+
+
+.hero-text{
+
+    flex:1;
+
+}
+
+
+.hero-text h2{
+
+    color:#6c63ff;
+    font-size:38px;
+    margin-bottom:15px;
+
+}
+
+
+
+.hero-text p{
+
+    color:#555;
+    font-size:18px;
+    margin-bottom:25px;
+
+}
+
+
+
+.hero-image img{
+
+    width:420px;
+    height:300px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+
+
+
+/* ===== BUTTONS ===== */
+
+
+.btn,
+button{
+
+    background:#ff6b81;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+
+}
+
+
+
+.btn:hover,
+button:hover{
+
+    background:#ff4757;
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* ===== DASHBOARD ===== */
+
+
+.stats{
+
+    margin-top:60px;
+    margin-bottom:90px;   /* SPACE BEFORE WHY USE SECTION */
+
+}
+
+
+
+.stats h2{
+
+    text-align:center;
+    color:#6c63ff;
+    margin-bottom:30px;
+
+}
+
+
+
+.stats-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.card h3{
+
+    font-size:35px;
+    color:#ff6b81;
+
+}
+
+
+
+
+
+/* ===== FEATURES ===== */
+
+
+.features{
+
+    margin-top:80px;
+
+}
+
+
+
+.features h2{
+
+    text-align:center;
+    color:#6c63ff;
+    margin-bottom:35px;
+
+}
+
+
+
+.feature-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+
+}
+
+
+
+.feature-card{
+
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+
+}
+
+
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.feature-card img{
+
+    width:100%;
+    height:180px;
+    object-fit:cover;
+
+}
+
+
+
+.feature-card h3{
+
+    color:#6c63ff;
+    padding:15px;
+
+}
+
+
+
+.feature-card p{
+
+    padding:0 15px 20px;
+
+}
+
+
+
+
+
+/* ===== ABOUT ===== */
+
+
+.about-card{
+
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+
+}
+
+
+
+.about-images{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+
+
+.about-images img{
+
+    width:260px;
+    height:170px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.3s;
+
+}
+
+
+
+.about-images img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+.about-text h2{
+
+    color:#6c63ff;
+    font-size:32px;
+    margin-bottom:20px;
+
+}
+
+
+
+.about-text h3{
+
+    color:#ff6b81;
+    margin-top:25px;
+
+}
+
+
+
+.about-text li{
+
+    margin:8px 0;
+
+}
+
+
+
+
+
+/* ===== FORM ===== */
+
+
+.form-card{
+
+    background:white;
+    max-width:650px;
+    margin:auto;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+
+}
+
+
+
+.form-card h2{
+
+    text-align:center;
+    color:#6c63ff;
+    margin-bottom:25px;
+
+}
+
+
+
+.form-group{
+
+    margin-bottom:15px;
+
+}
+
+
+
+label{
+
+    font-weight:600;
+
+}
+
+
+
+input,
+select,
+textarea{
+
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:15px;
+
+}
+
+
+
+textarea{
+
+    height:120px;
+    resize:none;
+
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+    border-color:#6c63ff;
+
+}
+
+
+
+
+
+/* ===== APPLICATION CARDS ===== */
+
+
+.application-card{
+
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.application-card h3{
+
+    color:#6c63ff;
+
+}
+
+
+
+
+.edit-btn{
+
+    background:#6c63ff;
+    margin-right:10px;
+
+}
+
+
+
+.edit-btn:hover{
+
+    background:#574bdb;
+
+}
+
+
+
+.delete-btn{
+
+    background:#ff4757;
+
+}
+
+
+
+.delete-btn:hover{
+
+    background:#e84118;
+
+}
+
+
+
+
+
+/* ===== MESSAGES ===== */
+
+
+.success-message{
+
+    background:#d4edda;
+    color:#155724;
+    padding:12px;
+    border-radius:10px;
+
+}
+
+
+
+.error-message{
+
+    background:#f8d7da;
+    color:#721c24;
+    padding:12px;
+    border-radius:10px;
+
+}
+
+
+
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+    background:#6c63ff;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+
+}
+
+
+
+
+
+/* ===== MOBILE ===== */
+
+
+@media(max-width:768px){
+
+
+header{
+
+    flex-direction:column;
+    gap:20px;
+
+}
+
+
+
+nav ul{
+
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+
+
+.hero{
+
+    flex-direction:column;
+
+}
+
+
+
+.hero-image img{
+
+    width:100%;
+    height:auto;
+
+}
+
+
+
+.about-card{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+
+
+.about-images{
+
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+
+
+.about-images img{
+
+    width:160px;
+    height:120px;
+
+}
+
+
+}
