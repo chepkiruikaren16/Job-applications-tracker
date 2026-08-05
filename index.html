@@ -1,169 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Job Applications Tracker</title>
+    <!-- Website Title -->
+    <title>Job Applications Tracker</title>
 
-<link rel="stylesheet" href="css/styles.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 
 <body>
 
+    <!-- ================= HEADER ================= -->
 
-<header>
+    <header>
 
-<div class="brand">
+        <div class="logo">
+            <h1>💼 Job Applications Tracker</h1>
+        </div>
 
-<h1>Job Applications Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="add-applications.html">Add Application</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
 
-<p>
-Organize, track, and manage your job applications in one place.
-</p>
+    </header>
 
-</div>
+    <!-- ================= MAIN ================= -->
 
+    <main>
 
-<nav>
+        <!-- Hero Section -->
 
-<ul>
+        <section class="hero">
 
-<li><a class="active" href="index.html">Home</a></li>
+            <div class="hero-text">
 
-<li><a href="add.html">Add Application</a></li>
+                <h2>Stay Organized During Your Job Search</h2>
 
-<li><a href="applications.html">Applications</a></li>
+                <p>
+                    Track every application, manage deadlines,
+                    schedule interviews and stay one step closer
+                    to your dream career.
+                </p>
 
-<li><a href="about.html">About</a></li>
+                <a href="add-applications.html" class="btn">
+                    Add Your First Application
+                </a>
 
-</ul>
+            </div>
 
-</nav>
+            <div class="hero-image">
 
-</header>
+                <img
+                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                    alt="People working together in an office">
 
+            </div>
 
+        </section>
 
-<main>
+        <!-- Statistics -->
 
+        <section class="stats">
 
-<section class="gallery">
+            <h2>Your Dashboard</h2>
 
-<div class="photos">
+            <div class="stats-container">
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSITZPHwJ-OsArRk4esQaBtciUBOTaalat-XMKzmoUu6A&s=10" alt="Job search">
+                <article class="card">
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4iixWXQOjBtNyYWQNbAW8DnGaYMfMbs8z2zAEaw0zA&s=10" alt="Job interview">
+                    <h3 id="totalApplications">0</h3>
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8nLBub2q9bpkES5-Ve76l2-MQ_g2yiEG3AZ0cu5FTTw&s=10" alt="Career success">
+                    <p>Total Applications</p>
 
-</div>
+                </article>
 
-</section>
+                <article class="card">
 
+                    <h3 id="interviews">0</h3>
 
+                    <p>Interviews</p>
 
+                </article>
 
-<section class="hero">
+                <article class="card">
 
+                    <h3 id="offers">0</h3>
 
-<h2>
-Track Every Job Application In One Place
-</h2>
+                    <p>Offers</p>
 
+                </article>
 
-<p>
+                <article class="card">
 
-Stay organized by recording your applications,
-tracking interviews, deadlines, and managing
-your career journey efficiently.
+                    <h3 id="rejections">0</h3>
 
-</p>
+                    <p>Rejected</p>
 
+                </article>
 
-<a href="add.html" class="btn">
-Add New Application
-</a>
+            </div>
 
+        </section>
 
-</section>
+        <!-- Features -->
 
+        <section class="features">
 
+            <h2>Why Use Job Applications Tracker?</h2>
 
+            <div class="feature-grid">
 
-<section class="statistics">
+                <article class="feature-card">
 
+                    <img
+                        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
+                        alt="Business meeting">
 
-<h2>Your Progress</h2>
+                    <h3>Track Applications</h3>
 
+                    <p>
+                        Keep all your job applications in one organized place.
+                    </p>
 
-<div class="stats-container">
+                </article>
 
+                <article class="feature-card">
 
-<div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+                        alt="Interview preparation">
 
-<h3>Total Applications</h3>
+                    <h3>Manage Interviews</h3>
 
-<p id="totalApplications">
-0
-</p>
+                    <p>
+                        Never miss an interview by keeping interview dates together with your applications.
+                    </p>
 
-</div>
+                </article>
 
+                <article class="feature-card">
 
+                    <img
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+                        alt="Team collaboration">
 
-<div class="card">
+                    <h3>Stay Organized</h3>
 
-<h3>Interviews</h3>
+                    <p>
+                        Monitor your application status and deadlines with ease.
+                    </p>
 
-<p id="interviewCount">
-0
-</p>
+                </article>
 
-</div>
+            </div>
 
+        </section>
 
+        <!-- Quick Tips -->
 
+        <section class="tips">
 
-<div class="card">
+            <h2>Job Search Tips</h2>
 
-<h3>Offers</h3>
+            <ul>
+                <li>✔ Tailor your CV for every application.</li>
+                <li>✔ Keep track of application deadlines.</li>
+                <li>✔ Prepare for interviews in advance.</li>
+                <li>✔ Follow up professionally after interviews.</li>
+            </ul>
 
-<p id="offerCount">
-0
-</p>
+        </section>
 
-</div>
+    </main>
 
+    <!-- ================= FOOTER ================= -->
 
-</div>
+    <footer>
 
+        <p>
+            © 2026 Job Applications Tracker | Designed using HTML, CSS & JavaScript
+        </p>
 
-</section>
+    </footer>
 
+    <!-- JavaScript -->
 
-
-</main>
-
-
-
-
-<footer>
-
-<p>
-© 2026 Job Applications Tracker | Designed by Caren Chepkirui
-</p>
-
-</footer>
-
-
-<script src="js/script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
-
 </html>
