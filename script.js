@@ -1,10 +1,4 @@
-/* =====================================
-   JOB APPLICATIONS TRACKER
-   FULL SCRIPT
-===================================== */
 
-
-/* ===== LOAD APPLICATIONS ===== */
 
 let applications = JSON.parse(
     localStorage.getItem("applications")
@@ -24,7 +18,7 @@ function saveApplications(){
 
 
 
-/* ===== ADD / UPDATE APPLICATION ===== */
+
 
 
 const form = document.getElementById("applicationForm");
@@ -37,7 +31,7 @@ if(form){
 
 
 
-    // LOAD DATA WHEN EDITING
+   
 
     if(editId){
 
@@ -256,7 +250,6 @@ if(form){
 
 
 
-/* ===== DISPLAY APPLICATIONS ===== */
 
 
 const applicationList =
@@ -411,7 +404,6 @@ function displayApplications(){
 
 
 
-/* ===== EDIT ===== */
 
 
 function editApplication(id){
@@ -436,7 +428,7 @@ function editApplication(id){
 
 
 
-/* ===== DELETE ===== */
+
 
 
 function deleteApplication(id){
@@ -475,7 +467,7 @@ function deleteApplication(id){
 
 
 
-/* ===== DASHBOARD ===== */
+
 
 
 function updateDashboard(){
@@ -550,7 +542,6 @@ function updateDashboard(){
 
 
 
-/* ===== SEARCH ===== */
 
 
 const search =
