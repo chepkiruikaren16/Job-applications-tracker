@@ -4,403 +4,260 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Add Application | Job Applications Tracker</title>
 
-
     <!-- Google Font -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
     <!-- CSS -->
-
     <link rel="stylesheet" href="styles.css">
-
 
 </head>
 
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
-
 <header>
 
-
     <div class="logo">
-
         <h1>💼 Job Applications Tracker</h1>
-
     </div>
 
-
-
     <nav>
-
         <ul>
 
             <li>
-                <a href="index.html">
-                    Home
-                </a>
+                <a href="index.html">Home</a>
             </li>
 
-
             <li>
-                <a href="applications.html">
-                    Applications
-                </a>
+                <a href="applications.html">Applications</a>
             </li>
 
-
             <li>
-                <a href="add-application.html" class="active">
+                <a href="add-applications.html" class="active">
                     Add Application
                 </a>
             </li>
 
-
             <li>
-                <a href="about.html">
-                    About
-                </a>
+                <a href="about.html">About</a>
             </li>
 
-
         </ul>
-
     </nav>
-
 
 </header>
 
-
-
 <!-- ================= MAIN ================= -->
-
 
 <main>
 
-
-
 <section class="form-section">
 
+<div class="form-card">
 
-    <div class="form-card">
+<h2>Add New Job Application</h2>
 
+<div id="message"></div>
 
-        <h2>
-            Add New Job Application
-        </h2>
+<form id="applicationForm">
 
+    <!-- Company -->
 
+    <div class="form-group">
 
-        <!-- Messages -->
+        <label for="company">Company Name *</label>
 
-        <div id="message"></div>
-
-
-
-        <form id="applicationForm">
-
-
-
-            <!-- Company -->
-
-            <div class="form-group">
-
-
-                <label for="company">
-                    Company Name *
-                </label>
-
-
-                <input 
-                    type="text"
-                    id="company"
-                    placeholder="Enter company name"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Position -->
-
-            <div class="form-group">
-
-
-                <label for="position">
-                    Job Position *
-                </label>
-
-
-                <input 
-                    type="text"
-                    id="position"
-                    placeholder="Enter job title"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Location -->
-
-            <div class="form-group">
-
-
-                <label for="location">
-                    Location
-                </label>
-
-
-                <input 
-                    type="text"
-                    id="location"
-                    placeholder="e.g. Nairobi, Remote"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Salary -->
-
-            <div class="form-group">
-
-
-                <label for="salary">
-                    Expected Salary
-                </label>
-
-
-                <input 
-                    type="text"
-                    id="salary"
-                    placeholder="Optional"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Application Date -->
-
-            <div class="form-group">
-
-
-                <label for="applicationDate">
-                    Application Date *
-                </label>
-
-
-                <input 
-                    type="date"
-                    id="applicationDate"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Application Deadline -->
-
-            <div class="form-group">
-
-
-                <label for="applicationDeadline">
-                    Application Deadline *
-                </label>
-
-
-                <input 
-                    type="date"
-                    id="applicationDeadline"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Interview Date -->
-
-            <div class="form-group">
-
-
-                <label for="interviewDate">
-                    Interview Date
-                </label>
-
-
-                <input 
-                    type="date"
-                    id="interviewDate"
-                >
-
-
-            </div>
-
-
-
-
-            <!-- Status -->
-
-            <div class="form-group">
-
-
-                <label for="status">
-                    Application Status *
-                </label>
-
-
-                <select id="status">
-
-
-                    <option value="">
-                        Select Status
-                    </option>
-
-
-                    <option value="Applied">
-                        Applied
-                    </option>
-
-
-                    <option value="Interview Scheduled">
-                        Interview Scheduled
-                    </option>
-
-
-                    <option value="Offer Received">
-                        Offer Received
-                    </option>
-
-
-                    <option value="Rejected">
-                        Rejected
-                    </option>
-
-
-                </select>
-
-
-            </div>
-
-
-
-
-            <!-- Notes -->
-
-            <div class="form-group">
-
-
-                <label for="notes">
-                    Additional Notes
-                </label>
-
-
-                <textarea 
-                    id="notes"
-                    placeholder="Add any notes about this application..."
-                ></textarea>
-
-
-            </div>
-
-
-
-
-            <!-- Buttons -->
-
-            <div class="button-group">
-
-
-                <button 
-                    type="submit"
-                    class="save-btn">
-
-                    Save Application
-
-                </button>
-
-
-
-                <button 
-                    type="reset"
-                    class="reset-btn">
-
-                    Clear Form
-
-                </button>
-
-
-            </div>
-
-
-
-
-        </form>
-
-
+        <input
+            type="text"
+            id="company"
+            placeholder="Enter company name"
+            required>
 
     </div>
 
+    <!-- Position -->
+
+    <div class="form-group">
+
+        <label for="position">Job Position *</label>
+
+        <input
+            type="text"
+            id="position"
+            placeholder="Enter job title"
+            required>
+
+    </div>
+
+    <!-- Location -->
+
+    <div class="form-group">
+
+        <label for="location">Location</label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="e.g. Nairobi, Remote">
+
+    </div>
+
+    <!-- Salary -->
+
+    <div class="form-group">
+
+        <label for="salary">Expected Salary</label>
+
+        <input
+            type="number"
+            id="salary"
+            placeholder="e.g. 80000"
+            min="0">
+
+    </div>
+
+    <!-- Application Date -->
+
+    <div class="form-group">
+
+        <label for="applicationDate">Application Date *</label>
+
+        <input
+            type="date"
+            id="applicationDate"
+            min="2020-01-01"
+            max="2035-12-31"
+            required>
+
+    </div>
+
+    <!-- Deadline -->
+
+    <div class="form-group">
+
+        <label for="applicationDeadline">
+            Application Deadline *
+        </label>
+
+        <input
+            type="date"
+            id="applicationDeadline"
+            min="2020-01-01"
+            max="2035-12-31"
+            required>
+
+    </div>
+
+    <!-- Interview Date -->
+
+    <div class="form-group">
+
+        <label for="interviewDate">
+            Interview Date
+        </label>
+
+        <input
+            type="date"
+            id="interviewDate"
+            min="2020-01-01"
+            max="2035-12-31">
+
+    </div>
+
+    <!-- Status -->
+
+    <div class="form-group">
+
+        <label for="status">Application Status *</label>
+
+        <select id="status" required>
+
+            <option value="">
+                Select Status
+            </option>
+
+            <option value="Applied">
+                Applied
+            </option>
+
+            <option value="Interview Scheduled">
+                Interview Scheduled
+            </option>
+
+            <option value="Offer Received">
+                Offer Received
+            </option>
+
+            <option value="Rejected">
+                Rejected
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- Notes -->
+
+    <div class="form-group">
+
+        <label for="notes">
+            Additional Notes
+        </label>
+
+        <textarea
+            id="notes"
+            rows="5"
+            placeholder="Add any notes about this application..."></textarea>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="button-group">
+
+        <button
+            type="submit"
+            class="save-btn">
+            Save Application
+        </button>
+
+        <button
+            type="reset"
+            class="reset-btn">
+            Clear Form
+        </button>
+
+    </div>
+
+</form>
+
+</div>
 
 </section>
 
-
-
 </main>
-
-
-
-
 
 <!-- ================= FOOTER ================= -->
 
-
 <footer>
-
 
     <p>
         © 2026 Job Applications Tracker |
         Built with HTML, CSS & JavaScript
     </p>
 
-
 </footer>
-
-
-
-
 
 <!-- JavaScript -->
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
