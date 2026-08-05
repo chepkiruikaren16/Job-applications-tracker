@@ -256,7 +256,7 @@ function editApplication(id) {
     localStorage.setItem("editId", id);
 
     // Make sure this matches your actual filename
-    window.location.href = "add-applications.html";
+    window.location.href = "add-application.html";
 }
 
 // ==========================================
