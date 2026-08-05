@@ -4,9 +4,7 @@
 ===================================== */
 
 
-/* =========================
-   GET SAVED DATA
-========================= */
+/* ===== LOAD APPLICATIONS ===== */
 
 let applications = JSON.parse(
     localStorage.getItem("applications")
@@ -26,9 +24,7 @@ function saveApplications(){
 
 
 
-/* =========================
-   ADD / EDIT APPLICATION
-========================= */
+/* ===== ADD / UPDATE APPLICATION ===== */
 
 
 const form = document.getElementById("applicationForm");
@@ -37,58 +33,59 @@ const form = document.getElementById("applicationForm");
 if(form){
 
 
-    const editId =
-    localStorage.getItem("editId");
+    let editId = localStorage.getItem("editId");
 
 
+
+    // LOAD DATA WHEN EDITING
 
     if(editId){
 
 
-        const oldApplication =
+        let app =
         applications.find(
-            app => app.id == editId
+            item => item.id == editId
         );
 
 
 
-        if(oldApplication){
+        if(app){
 
 
             document.getElementById("company").value =
-            oldApplication.company || "";
+            app.company || "";
 
 
             document.getElementById("position").value =
-            oldApplication.position || "";
+            app.position || "";
 
 
             document.getElementById("location").value =
-            oldApplication.location || "";
+            app.location || "";
 
 
             document.getElementById("salary").value =
-            oldApplication.salary || "";
+            app.salary || "";
 
 
             document.getElementById("applicationDate").value =
-            oldApplication.applicationDate || "";
+            app.applicationDate || "";
 
 
             document.getElementById("applicationDeadline").value =
-            oldApplication.applicationDeadline || "";
+            app.applicationDeadline || "";
 
 
             document.getElementById("interviewDate").value =
-            oldApplication.interviewDate || "";
+            app.interviewDate || "";
 
 
             document.getElementById("status").value =
-            oldApplication.status || "";
+            app.status || "";
 
 
             document.getElementById("notes").value =
-            oldApplication.notes || "";
+            app.notes || "";
 
 
         }
@@ -100,97 +97,155 @@ if(form){
 
 
 
-form.addEventListener(
-"submit",
-function(e){
+    form.addEventListener(
+    "submit",
+    function(e){
 
 
-e.preventDefault();
-
-
-
-const application = {
-
-
-id:
-
-localStorage.getItem("editId")
-?
-Number(localStorage.getItem("editId"))
-:
-Date.now(),
+        e.preventDefault();
 
 
 
-company:
-
-document.getElementById("company").value.trim(),
+        const application = {
 
 
+            id:
 
-position:
-
-document.getElementById("position").value.trim(),
-
-
-
-location:
-
-document.getElementById("location").value.trim(),
+            editId
+            ?
+            Number(editId)
+            :
+            Date.now(),
 
 
 
-salary:
+            company:
 
-document.getElementById("salary").value.trim(),
-
-
-
-applicationDate:
-
-document.getElementById("applicationDate").value,
+            document.getElementById("company").value.trim(),
 
 
 
-applicationDeadline:
+            position:
 
-document.getElementById("applicationDeadline").value,
-
-
-
-interviewDate:
-
-document.getElementById("interviewDate").value,
+            document.getElementById("position").value.trim(),
 
 
 
-status:
+            location:
 
-document.getElementById("status").value,
-
-
-
-notes:
-
-document.getElementById("notes").value.trim()
+            document.getElementById("location").value.trim(),
 
 
 
-};
+            salary:
+
+            document.getElementById("salary").value.trim(),
+
+
+
+            applicationDate:
+
+            document.getElementById("applicationDate").value,
+
+
+
+            applicationDeadline:
+
+            document.getElementById("applicationDeadline").value,
+
+
+
+            interviewDate:
+
+            document.getElementById("interviewDate").value,
+
+
+
+            status:
+
+            document.getElementById("status").value,
+
+
+
+            notes:
+
+            document.getElementById("notes").value.trim()
+
+
+        };
 
 
 
 
-if(application.company === "" ||
-application.position === ""){
+
+        if(
+            application.company === "" ||
+            application.position === ""
+        ){
+
+            alert(
+            "Please enter company name and job position"
+            );
+
+            return;
+
+        }
 
 
-alert(
-"Please enter company name and position"
-);
 
 
-return;
+
+        if(editId){
+
+
+            applications =
+            applications.map(
+                item =>
+                item.id == editId
+                ?
+                application
+                :
+                item
+            );
+
+
+        }
+
+        else{
+
+
+            applications.push(application);
+
+
+        }
+
+
+
+
+        saveApplications();
+
+
+
+        localStorage.removeItem("editId");
+
+
+
+        alert(
+        "Application saved successfully!"
+        );
+
+
+
+        form.reset();
+
+
+
+        window.location.href =
+        "applications.html";
+
+
+
+    });
 
 
 }
@@ -199,69 +254,9 @@ return;
 
 
 
-const existingIndex =
-applications.findIndex(
-app => app.id === application.id
-);
 
 
-
-
-if(existingIndex !== -1){
-
-
-applications[existingIndex] =
-application;
-
-
-}
-else{
-
-
-applications.push(application);
-
-
-}
-
-
-
-
-saveApplications();
-
-
-
-localStorage.removeItem("editId");
-
-
-
-alert(
-"Application saved successfully!"
-);
-
-
-
-form.reset();
-
-
-
-window.location.href =
-"applications.html";
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-/* =========================
-   DISPLAY APPLICATIONS
-========================= */
+/* ===== DISPLAY APPLICATIONS ===== */
 
 
 const applicationList =
@@ -269,148 +264,168 @@ document.getElementById("applicationList");
 
 
 
-function displayApplications(list = applications){
+function displayApplications(){
+
+
+    if(!applicationList){
+
+        return;
+
+    }
 
 
 
-if(!applicationList){
+    applicationList.innerHTML = "";
 
-return;
+
+
+    if(applications.length === 0){
+
+
+        applicationList.innerHTML =
+        "<h3>No Applications Added</h3>";
+
+
+        return;
+
+    }
+
+
+
+
+    applications.forEach(app => {
+
+
+
+        let card =
+        document.createElement("div");
+
+
+
+        card.className =
+        "application-card";
+
+
+
+        card.innerHTML = `
+
+
+        <h3>
+        ${app.position}
+        </h3>
+
+
+
+        <p>
+        <strong>Company Name:</strong>
+        ${app.company || "Not provided"}
+        </p>
+
+
+
+        <p>
+        <strong>Location:</strong>
+        ${app.location || "Not provided"}
+        </p>
+
+
+
+        <p>
+        <strong>Salary:</strong>
+        ${app.salary || "Not provided"}
+        </p>
+
+
+
+        <p>
+        <strong>Application Date:</strong>
+        ${app.applicationDate || "Not set"}
+        </p>
+
+
+
+        <p>
+        <strong>Application Deadline:</strong>
+        ${app.applicationDeadline || "Not set"}
+        </p>
+
+
+
+        <p>
+        <strong>Interview Date:</strong>
+        ${app.interviewDate || "Not scheduled"}
+        </p>
+
+
+
+        <p>
+        <strong>Status:</strong>
+        ${app.status}
+        </p>
+
+
+
+        <p>
+        <strong>Notes:</strong>
+        ${app.notes || "No notes"}
+        </p>
+
+
+
+        <button 
+        class="edit-btn"
+        onclick="editApplication(${app.id})">
+
+        Edit
+
+        </button>
+
+
+
+        <button
+        class="delete-btn"
+        onclick="deleteApplication(${app.id})">
+
+        Delete
+
+        </button>
+
+
+
+        `;
+
+
+
+        applicationList.appendChild(card);
+
+
+
+    });
+
 
 }
 
 
 
-applicationList.innerHTML = "";
 
 
 
 
-if(list.length === 0){
-
-
-applicationList.innerHTML = `
-
-<h3>No Applications Added</h3>
-
-`;
-
-return;
-
-
-}
-
-
-
-
-list.forEach(app => {
-
-
-
-const card =
-document.createElement("div");
-
-
-
-card.className =
-"application-card";
-
-
-
-card.innerHTML = `
-
-
-<h3>
-${app.position}
-</h3>
-
-
-<p>
-<strong>Company Name:</strong>
-${app.company}
-</p>
-
-
-<p>
-<strong>Location:</strong>
-${app.location || "Not provided"}
-</p>
-
-
-<p>
-<strong>Status:</strong>
-${app.status}
-</p>
-
-
-<p>
-<strong>Application Date:</strong>
-${app.applicationDate}
-</p>
-
-
-<p>
-<strong>Notes:</strong>
-${app.notes || "No notes"}
-</p>
-
-
-
-<button 
-class="edit-btn"
-onclick="editApplication(${app.id})">
-
-Edit
-
-</button>
-
-
-
-<button 
-class="delete-btn"
-onclick="deleteApplication(${app.id})">
-
-Delete
-
-</button>
-
-
-`;
-
-
-
-applicationList.appendChild(card);
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-/* =========================
-   EDIT APPLICATION
-========================= */
+/* ===== EDIT ===== */
 
 
 function editApplication(id){
 
 
-localStorage.setItem(
-"editId",
-id
-);
+    localStorage.setItem(
+        "editId",
+        id
+    );
 
 
 
-window.location.href =
-"add-application.html";
+    window.location.href =
+    "add-application.html";
 
 
 }
@@ -421,44 +436,35 @@ window.location.href =
 
 
 
-/* =========================
-   DELETE APPLICATION
-========================= */
+/* ===== DELETE ===== */
 
 
 function deleteApplication(id){
 
 
-const confirmDelete =
-confirm(
-"Delete this application?"
-);
+    if(confirm("Delete this application?")){
+
+
+        applications =
+        applications.filter(
+            app =>
+            app.id !== id
+        );
 
 
 
-if(confirmDelete){
-
-
-applications =
-applications.filter(
-app =>
-app.id !== id
-);
+        saveApplications();
 
 
 
-saveApplications();
+        displayApplications();
 
 
 
-displayApplications();
+        updateDashboard();
 
 
-
-updateDashboard();
-
-
-}
+    }
 
 
 }
@@ -468,88 +474,72 @@ updateDashboard();
 
 
 
-/* =========================
-   DASHBOARD COUNTERS
-========================= */
+
+/* ===== DASHBOARD ===== */
 
 
 function updateDashboard(){
 
 
-
-const total =
-document.getElementById(
-"totalApplications"
-);
+    const total =
+    document.getElementById("totalApplications");
 
 
-
-const interviews =
-document.getElementById(
-"interviews"
-);
+    const interviews =
+    document.getElementById("interviews");
 
 
+    const offers =
+    document.getElementById("offers");
 
-const offers =
-document.getElementById(
-"offers"
-);
+
+    const rejected =
+    document.getElementById("rejections");
 
 
 
-const rejected =
-document.getElementById(
-"rejections"
-);
+    if(total){
+
+        total.textContent =
+        applications.length;
+
+    }
 
 
 
+    if(interviews){
 
+        interviews.textContent =
+        applications.filter(
+            app =>
+            app.status === "Interview Scheduled"
+        ).length;
 
-if(total){
-
-total.textContent =
-applications.length;
-
-}
-
-
-
-if(interviews){
-
-interviews.textContent =
-applications.filter(
-app =>
-app.status === "Interview Scheduled"
-).length;
-
-}
+    }
 
 
 
-if(offers){
+    if(offers){
 
-offers.textContent =
-applications.filter(
-app =>
-app.status === "Offer Received"
-).length;
+        offers.textContent =
+        applications.filter(
+            app =>
+            app.status === "Offer Received"
+        ).length;
 
-}
+    }
 
 
 
-if(rejected){
+    if(rejected){
 
-rejected.textContent =
-applications.filter(
-app =>
-app.status === "Rejected"
-).length;
+        rejected.textContent =
+        applications.filter(
+            app =>
+            app.status === "Rejected"
+        ).length;
 
-}
-
+    }
 
 
 }
@@ -560,9 +550,7 @@ app.status === "Rejected"
 
 
 
-/* =========================
-   SEARCH
-========================= */
+/* ===== SEARCH ===== */
 
 
 const search =
@@ -578,31 +566,63 @@ search.addEventListener(
 function(){
 
 
-const value =
+let value =
 search.value.toLowerCase();
 
 
 
-const filtered =
+let filtered =
 applications.filter(
 app =>
 
-app.company
-.toLowerCase()
+app.company.toLowerCase()
 .includes(value)
 
 ||
 
-app.position
-.toLowerCase()
+app.position.toLowerCase()
 .includes(value)
 
 );
 
 
 
-displayApplications(filtered);
+applicationList.innerHTML="";
 
+
+
+filtered.forEach(app=>{
+
+
+let div =
+document.createElement("div");
+
+
+div.className =
+"application-card";
+
+
+div.innerHTML = `
+
+<h3>${app.position}</h3>
+
+<p>
+<strong>Company:</strong>
+${app.company}
+</p>
+
+<p>
+<strong>Status:</strong>
+${app.status}
+</p>
+
+`;
+
+
+applicationList.appendChild(div);
+
+
+});
 
 
 });
@@ -615,71 +635,12 @@ displayApplications(filtered);
 
 
 
-
-/* =========================
-   STATUS FILTER
-========================= */
-
-
-const filter =
-document.getElementById(
-"statusFilter"
-);
-
-
-
-if(filter){
-
-
-filter.addEventListener(
-"change",
-function(){
-
-
-if(filter.value === "All"){
+/* ===== LOAD PAGE ===== */
 
 
 displayApplications();
-
-
-}
-
-else{
-
-
-displayApplications(
-
-applications.filter(
-app =>
-app.status === filter.value
-)
-
-);
-
-
-}
-
-
-});
-
-
-}
-
-
-
-
-
-
-/* =========================
-   LOAD PAGE
-========================= */
-
-
-displayApplications();
-
 
 updateDashboard();
-
 
 
 console.log(
