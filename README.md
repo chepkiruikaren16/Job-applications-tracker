@@ -18,7 +18,6 @@ The applications uses JavaScript and the browser LocalStorage API to save applic
 - Track application deadlines
 - Track interview dates
 - Add recruiter information
-- Add notes for applications
 - View dashboard statistics
 - Responsive modern user interface
 
